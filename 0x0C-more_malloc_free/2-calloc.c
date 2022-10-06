@@ -1,33 +1,40 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
-*array_range - get len, malloc * len
-*loop size of len to insert min++ into new arr
-*@min: min input
-*@max: max input
-*Return: pointer to new arr of ints
+*_memset - copy char
+*@s: string
+*@b: input
+*@n: bytes
+*Return: string
 */
 
-int *array_range(int min, int max)
+char *_memset(char *s, char b, unsigned int n)
 {
-	int *arr;
-	int i, len;
+	unsigned int i;
 
-	if (min > max)
-		return (NULL);
-	for (len = 0; len < (max - min); len++)
-		;
-
-	arr = malloc(sizeof(int) * (len + 1));
-	if (arr == NULL)
-		return (NULL);
-
-	for (i = 0; i <= len; i++)
+	for (i = 0; i < n; i++)
 	{
-		arr[i] = min++;
+		s[i] = b;
 	}
+	return (s);
+}
 
-	return (arr);
+/**
+*_calloc - allocates memory for an array using malloc
+*@nmemb: n elements
+*@size: bytes
+*Return: pointer
+*/
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	void *p;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	p = malloc(nmemb * size);
+
+	if (p == NULL)
+		return (NULL);
+	_memset(p, 0, (nmemb * size));
+	return (p);
 }
