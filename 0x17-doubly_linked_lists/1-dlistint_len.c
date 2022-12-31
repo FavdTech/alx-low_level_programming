@@ -1,17 +1,21 @@
 #include "lists.h"
+
 /**
-*dlistint_len - Return number of elements in dll
-*@h: Pointer to struct of ddl
-*Return: The amount of elements in dll
+*dlistint_len - get number of nodes
+*@h: the head of list
+*Return: number pf nodes
 */
+
 size_t dlistint_len(const dlistint_t *h)
 {
-	int count_node = 0;
+	/* declarations */
+	int nodes = 0;
 
-	while (h != NULL)
+	/* count nodes as we move through list */
+	while (h)
 	{
+		nodes += 1;
 		h = h->next;
-		count_node++;
 	}
-	return (count_node);
+	return (nodes);
 }
