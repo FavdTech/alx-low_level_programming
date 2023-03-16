@@ -1,10 +1,10 @@
 #include "lists.h"
 
 /**
-*dlistint_len - get number of nodes
-*@h: the head of list
-*Return: number pf nodes
-*/
+ * dlistint_len - get number of nodes
+ * @h: the head of list
+ * Return: number pf nodes
+ */
 
 size_t dlistint_len(const dlistint_t *h)
 {
